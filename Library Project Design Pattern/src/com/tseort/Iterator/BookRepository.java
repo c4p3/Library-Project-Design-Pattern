@@ -14,8 +14,8 @@ public class BookRepository implements Container {
         return new BookIterator();
     }
 
-    public void addBook(IBook user) {
-        books.add(user);
+    public void addBook(IBook book) {
+        books.add(book);
     }
 
     private class BookIterator implements Iterator {
