@@ -86,6 +86,7 @@ public class Main {
     }
 
     private static void PrintLibraryLoans(LoanRepository loanList) {
+        System.out.println("=====================================================================================");
         System.out.println("LIBRARY CURRENT LOANS");
         for (Iterator iterator = loanList.getIterator(); iterator.hasNext();) {
             Loan loan = (Loan)iterator.next();
@@ -94,11 +95,15 @@ public class Main {
             System.out.println("Book: " + loan.getBook().getTitle());
             System.out.println("Period: " + loan.getPeriod());
             System.out.println("Format: " + loan.getBook().getBookFormat());
+            System.out.println("Category: " + loan.getBook().getCategory());
         }
         System.out.println("=====================================================================================");
+        System.out.println();
+        System.out.println();
     }
 
     private static void PrintLibraryBooks(BookRepository bookList) {
+        System.out.println("=====================================================================================");
         System.out.println("LIBRARY BOOKS");
         for (Iterator iterator = bookList.getIterator(); iterator.hasNext();) {
             IBook book = (IBook)iterator.next();
@@ -107,11 +112,15 @@ public class Main {
             System.out.println("Isbn: " + book.getIsbn());
             System.out.println("Isbn: " + book.getLoanPeriod());
             System.out.println("Format: " + book.getBookFormat());
+            System.out.println("Category: " + book.getCategory());
         }
         System.out.println("=====================================================================================");
+        System.out.println();
+        System.out.println();
     }
 
     private static void PrintLibraryUsers(UserRepository userList) {
+        System.out.println("=====================================================================================");
         System.out.println("LIBRARY USERS");
         for (Iterator iterator = userList.getIterator(); iterator.hasNext();) {
             IUser user = (IUser)iterator.next();
@@ -120,5 +129,7 @@ public class Main {
             System.out.println("Password: " + user.getPassword());
         }
         System.out.println("=====================================================================================");
+        System.out.println();
+        System.out.println();
     }
 }

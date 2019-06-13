@@ -6,6 +6,7 @@ public class AudioBook implements IBook {
     String isbn;
     int loanPeriod;
     int length;
+    String category;
 
     @Override
     public void setTitle(String title) {
@@ -19,6 +20,7 @@ public class AudioBook implements IBook {
 
     @Override
     public void setLoanPeriod(String category) {
+        this.category = category;
         if (category.equalsIgnoreCase("biography")) {
             this.loanPeriod = 7;
         } else if (category.equalsIgnoreCase("fiction")) {
@@ -54,5 +56,9 @@ public class AudioBook implements IBook {
 
     public String getBookFormat() {
         return "Audiobook";
+    }
+
+    public String getCategory() {
+        return category;
     }
 }

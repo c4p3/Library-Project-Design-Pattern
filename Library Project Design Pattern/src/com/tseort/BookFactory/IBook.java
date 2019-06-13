@@ -9,4 +9,5 @@ public interface IBook {
     String getIsbn();
     int getLoanPeriod();
     String getBookFormat();
+    String getCategory();
 }

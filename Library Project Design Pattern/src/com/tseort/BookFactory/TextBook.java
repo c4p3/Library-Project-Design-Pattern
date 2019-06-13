@@ -19,6 +19,7 @@ public class TextBook implements IBook {
 
     @Override
     public void setLoanPeriod(String category) {
+        this.category = category;
         if (category.equalsIgnoreCase("biography")) {
             this.loanPeriod = 7;
         } else if (category.equalsIgnoreCase("fiction")) {
@@ -48,5 +49,9 @@ public class TextBook implements IBook {
 
     public String getBookFormat() {
         return "Textbook";
+    }
+
+    public String getCategory() {
+        return category;
     }
 }
