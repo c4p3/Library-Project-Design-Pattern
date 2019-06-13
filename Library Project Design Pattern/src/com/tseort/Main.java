@@ -110,7 +110,7 @@ public class Main {
             System.out.println("=====================================================================================");
             System.out.println("Title: " + book.getTitle());
             System.out.println("Isbn: " + book.getIsbn());
-            System.out.println("Isbn: " + book.getLoanPeriod());
+            System.out.println("Period: " + book.getLoanPeriod());
             System.out.println("Format: " + book.getBookFormat());
             System.out.println("Category: " + book.getCategory());
         }
