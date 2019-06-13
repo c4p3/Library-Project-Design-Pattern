@@ -10,13 +10,8 @@ public class EBookFactory extends AbstractFactory {
     @Override
     public IBook createBook(String category) {
 
-        if (category.equalsIgnoreCase("fiction")) {
-            return new EBook();
-        } else if (category.equalsIgnoreCase("biography")) {
-            return new AudioBook();
-        } else if (category.equalsIgnoreCase("academic")) {
-            return new TextBook();
-        }
-        return null;
+        IBook book = new EBook();
+        book.setLoanPeriod(category);
+        return book;
     }
 }

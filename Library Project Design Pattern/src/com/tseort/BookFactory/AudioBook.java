@@ -18,8 +18,17 @@ public class AudioBook implements IBook {
     }
 
     @Override
-    public void setLoanPeriod() {
-        this.loanPeriod = 7;
+    public void setLoanPeriod(String category) {
+        if (category.equalsIgnoreCase("biography")) {
+            this.loanPeriod = 7;
+        } else if (category.equalsIgnoreCase("fiction")) {
+            this.loanPeriod = 14;
+        } else if (category.equalsIgnoreCase("academic")) {
+            this.loanPeriod = 21;
+        } else {
+            System.out.println("Category not recognized.");
+            this.loanPeriod = 0;
+        }
     }
 
     public void setAudioLength(int audioLengthHours) {
@@ -42,4 +51,8 @@ public class AudioBook implements IBook {
     }
 
     public int getAudioLength() { return length; }
+
+    public String getBookFormat() {
+        return "Audiobook";
+    }
 }

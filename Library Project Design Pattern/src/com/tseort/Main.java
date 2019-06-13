@@ -29,26 +29,22 @@ public class Main {
         IBook book0 = textBookFactory.createBook("Fiction");
         book0.setTitle("The Road");
         book0.setIsbn("978-0307387899");
-        book0.setLoanPeriod();
         bookList.addBook(book0);
 
         IBook book1 = eBookFactory.createBook("Academic");
         book1.setTitle("Design Patterns: Elements of Reusable Object-Oriented Software");
         book1.setIsbn("978-0201633610");
-        book1.setLoanPeriod();
         bookList.addBook(book1);
 
         IBook book2 = audioBookFactory.createBook("Biography");
         book2.setTitle("Einstein: His Life and Universe");
         book2.setIsbn("978-0743264747");
-        book2.setLoanPeriod();
         bookList.addBook(book2);
 
         // Creating a book from using the factory
         IBook book3 = textBookFactory.createBook("Fiction");
         book3.setTitle("Dune");
         book3.setIsbn("978-0441172719");
-        book3.setLoanPeriod();
         bookList.addBook(book3);
 
         // USER TEST:
@@ -79,25 +75,17 @@ public class Main {
         Loan loan2 = loanBuilderDirector.construct().setBook(book1).setUser(user2).setPeriod();
         loanList.addLoan(loan2);
 
-        System.out.println("LIBRARY USERS");
-        for (Iterator iterator = userList.getIterator(); iterator.hasNext();) {
-            IUser user = (IUser)iterator.next();
-            System.out.println("=====================================================================================");
-            System.out.println("Username: " + user.getUsername());
-            System.out.println("Password: " + user.getPassword());
-        }
-        System.out.println("=====================================================================================");
+        // Building a loan using the loanbuilder directors construct method.
+        Loan loan3 = loanBuilderDirector.construct().setBook(book2).setUser(user2);
+        loanList.addLoan(loan3);
 
-        System.out.println("LIBRARY BOOKS");
-        for (Iterator iterator = bookList.getIterator(); iterator.hasNext();) {
-            IBook book = (IBook)iterator.next();
-            System.out.println("=====================================================================================");
-            System.out.println("Title: " + book.getTitle());
-            System.out.println("Isbn: " + book.getIsbn());
-            System.out.println("Isbn: " + book.getLoanPeriod());
-        }
-        System.out.println("=====================================================================================");
+        // Print Methods for outputting users, books and loans.
+        PrintLibraryUsers(userList);
+        PrintLibraryBooks(bookList);
+        PrintLibraryLoans(loanList);
+    }
 
+    private static void PrintLibraryLoans(LoanRepository loanList) {
         System.out.println("LIBRARY CURRENT LOANS");
         for (Iterator iterator = loanList.getIterator(); iterator.hasNext();) {
             Loan loan = (Loan)iterator.next();
@@ -105,6 +93,31 @@ public class Main {
             System.out.println("Loaner: " + loan.getUser().getUsername());
             System.out.println("Book: " + loan.getBook().getTitle());
             System.out.println("Period: " + loan.getPeriod());
+            System.out.println("Format: " + loan.getBook().getBookFormat());
+        }
+        System.out.println("=====================================================================================");
+    }
+
+    private static void PrintLibraryBooks(BookRepository bookList) {
+        System.out.println("LIBRARY BOOKS");
+        for (Iterator iterator = bookList.getIterator(); iterator.hasNext();) {
+            IBook book = (IBook)iterator.next();
+            System.out.println("=====================================================================================");
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Isbn: " + book.getIsbn());
+            System.out.println("Isbn: " + book.getLoanPeriod());
+            System.out.println("Format: " + book.getBookFormat());
+        }
+        System.out.println("=====================================================================================");
+    }
+
+    private static void PrintLibraryUsers(UserRepository userList) {
+        System.out.println("LIBRARY USERS");
+        for (Iterator iterator = userList.getIterator(); iterator.hasNext();) {
+            IUser user = (IUser)iterator.next();
+            System.out.println("=====================================================================================");
+            System.out.println("Username: " + user.getUsername());
+            System.out.println("Password: " + user.getPassword());
         }
         System.out.println("=====================================================================================");
     }

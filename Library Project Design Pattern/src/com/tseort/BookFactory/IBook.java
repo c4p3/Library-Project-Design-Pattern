@@ -4,8 +4,9 @@ public interface IBook {
 
     void setTitle(String title);
     void setIsbn(String isbn);
-    void setLoanPeriod();
+    void setLoanPeriod(String category);
     String getTitle();
     String getIsbn();
     int getLoanPeriod();
+    String getBookFormat();
 }

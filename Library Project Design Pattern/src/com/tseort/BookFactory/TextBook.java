@@ -18,8 +18,17 @@ public class TextBook implements IBook {
     }
 
     @Override
-    public void setLoanPeriod() {
-        this.loanPeriod = 21;
+    public void setLoanPeriod(String category) {
+        if (category.equalsIgnoreCase("biography")) {
+            this.loanPeriod = 7;
+        } else if (category.equalsIgnoreCase("fiction")) {
+            this.loanPeriod = 14;
+        } else if (category.equalsIgnoreCase("academic")) {
+            this.loanPeriod = 21;
+        } else {
+            System.out.println("Category not recognized.");
+            this.loanPeriod = 0;
+        }
     }
 
     @Override
@@ -35,5 +44,9 @@ public class TextBook implements IBook {
     @Override
     public int getLoanPeriod() {
         return loanPeriod;
+    }
+
+    public String getBookFormat() {
+        return "Textbook";
     }
 }
