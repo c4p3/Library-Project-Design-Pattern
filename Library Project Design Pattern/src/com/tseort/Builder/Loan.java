@@ -17,27 +17,30 @@ public class Loan {
         return user;
     }
 
-    public void setUser(IUser user) {
+    public Loan setUser(IUser user) {
         this.user = user;
+        return this;
     }
 
     public IBook getBook() {
         return book;
     }
 
-    public void setBook(IBook book) {
+    public Loan setBook(IBook book) {
         this.book = book;
+        return this;
     }
 
     public int getPeriod() {
         return loanPeriod;
     }
 
-    public void setPeriod() {
+    public Loan setPeriod() {
         if (user.getType() == "Premium User") {
             this.loanPeriod = book.getLoanPeriod() + 7;
         } else {
             this.loanPeriod = book.getLoanPeriod();
         }
+        return this;
     }
 }

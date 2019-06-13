@@ -1,11 +1,11 @@
 package com.tseort.BookFactory;
 
-public class AcademicBook implements IBook {
+public class AudioBook implements IBook {
 
     String title;
     String isbn;
     int loanPeriod;
-    String category;
+    int length;
 
     @Override
     public void setTitle(String title) {
@@ -19,7 +19,11 @@ public class AcademicBook implements IBook {
 
     @Override
     public void setLoanPeriod() {
-        this.loanPeriod = 21;
+        this.loanPeriod = 7;
+    }
+
+    public void setAudioLength(int audioLengthHours) {
+        this.length = audioLengthHours;
     }
 
     @Override
@@ -36,4 +40,6 @@ public class AcademicBook implements IBook {
     public int getLoanPeriod() {
         return loanPeriod;
     }
+
+    public int getAudioLength() { return length; }
 }

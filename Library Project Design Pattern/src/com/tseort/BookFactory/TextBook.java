@@ -1,6 +1,6 @@
 package com.tseort.BookFactory;
 
-public class BiographyBook implements IBook {
+public class TextBook implements IBook {
 
     String title;
     String isbn;
@@ -19,7 +19,7 @@ public class BiographyBook implements IBook {
 
     @Override
     public void setLoanPeriod() {
-        this.loanPeriod = 7;
+        this.loanPeriod = 21;
     }
 
     @Override

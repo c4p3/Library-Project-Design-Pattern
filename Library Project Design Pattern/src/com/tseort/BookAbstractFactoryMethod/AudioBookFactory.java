@@ -1,8 +1,8 @@
 package com.tseort.BookAbstractFactoryMethod;
 
-import com.tseort.BookFactory.AcademicBook;
-import com.tseort.BookFactory.BiographyBook;
-import com.tseort.BookFactory.FictionBook;
+import com.tseort.BookFactory.TextBook;
+import com.tseort.BookFactory.AudioBook;
+import com.tseort.BookFactory.EBook;
 import com.tseort.BookFactory.IBook;
 
 public class AudioBookFactory extends AbstractFactory {
@@ -11,11 +11,11 @@ public class AudioBookFactory extends AbstractFactory {
     public IBook createBook(String category) {
 
         if (category.equalsIgnoreCase("fiction")) {
-            return new FictionBook();
+            return new EBook();
         } else if (category.equalsIgnoreCase("biography")) {
-            return new BiographyBook();
+            return new AudioBook();
         } else if (category.equalsIgnoreCase("academic")) {
-            return new AcademicBook();
+            return new TextBook();
         }
         return null;
     }

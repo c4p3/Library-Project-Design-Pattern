@@ -1,6 +1,6 @@
 package com.tseort.BookFactory;
 
-public class FictionBook implements IBook {
+public class EBook implements IBook {
 
     String title;
     String isbn;

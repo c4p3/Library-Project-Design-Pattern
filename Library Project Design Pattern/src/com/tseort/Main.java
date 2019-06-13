@@ -2,7 +2,6 @@ package com.tseort;
 
 import com.tseort.BookAbstractFactoryMethod.AbstractFactory;
 import com.tseort.BookAbstractFactoryMethod.FactoryProducer;
-import com.tseort.BookFactory.BookFactory;
 import com.tseort.BookFactory.IBook;
 import com.tseort.Builder.Loan;
 import com.tseort.Builder.LoanBuilder;
@@ -39,7 +38,6 @@ public class Main {
         book1.setLoanPeriod();
         bookList.addBook(book1);
 
-
         IBook book2 = audioBookFactory.createBook("Biography");
         book2.setTitle("Einstein: His Life and Universe");
         book2.setIsbn("978-0743264747");
@@ -74,17 +72,11 @@ public class Main {
         LoanBuilderDirector loanBuilderDirector = new LoanBuilderDirector(loanBuilder);
 
         // Building a loan using the loanbuilder directors construct method.
-        Loan loan1 = loanBuilderDirector.construct();
-        loan1.setUser(user1);
-        loan1.setBook(book1);
-        loan1.setPeriod();
+        Loan loan1 = loanBuilderDirector.construct().setBook(book0).setUser(user1).setPeriod();
         loanList.addLoan(loan1);
 
         // Building a loan using the loanbuilder directors construct method.
-        Loan loan2 = loanBuilderDirector.construct();
-        loan2.setUser(user2);
-        loan2.setBook(book2);
-        loan2.setPeriod();
+        Loan loan2 = loanBuilderDirector.construct().setBook(book1).setUser(user2).setPeriod();
         loanList.addLoan(loan2);
 
         System.out.println("LIBRARY USERS");
