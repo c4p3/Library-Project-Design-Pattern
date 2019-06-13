@@ -17,6 +17,7 @@ public class EBook implements IBook {
         this.isbn = isbn;
     }
 
+    // Sets the loan period depending on the category.
     @Override
     public void setLoanPeriod(String category) {
         this.category = category;
